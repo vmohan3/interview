@@ -1,9 +1,13 @@
 def reverse_word(sentence, start, end):
-    pass
+    length = end - start + 1
+    l_by_2 = (length / 2)
+    for i in range(start, start + l_by_2):
+        j = end - i + start
+        sentence[i], sentence[j] = sentence[j], sentence[i]
 
 
 def reverse(sentence):
-    delimiter = "., !;:"
+    delimiter = "., !;:'\""
     start = 0
     end = 0
     for count, char in enumerate(sentence):
@@ -14,6 +18,8 @@ def reverse(sentence):
 
 
 if __name__ == '__main__':
-    sentence = "This is new shit"
+    sentence = 'Dorothy says: "This is new shit!"'
+    sentence = list(sentence)
     reverse(sentence)
+    sentence = ''.join(sentence)
     print(sentence)
